@@ -10,13 +10,22 @@ A small web app that predicts how many ice creams a shop will sell in a day, bas
 
 Move the controls and the app shows a predicted number of ice creams sold.
 
-| Input | What it means | Effect on sales |
-|---|---|---|
-| Temperature (°C) | Daily temperature (5 to 38) | Hotter days sell more (about +6.6 per °C) |
-| Day type | Weekday or weekend | Weekends sell more (about +44) |
-| Rainfall (mm) | Rain during the day (0 to 25) | Rainy days sell less (about -2.3 per mm) |
+## Original model vs. updated model
 
-Temperature was the original predictor. **Weekend** and **rainfall** are the two predictors I added.
+This project is a retraining exercise: start with a model, add predictors, retrain, save, and redeploy.
+
+| Version | Predictors | Status |
+|---|---|---|
+| **Original** | Temperature (°C) | Starting point |
+| **Updated (this app)** | Temperature (°C) + **Weekend** + **Rainfall (mm)** | Retrained, saved, deployed |
+
+### Predictors in the updated model
+
+| Predictor | Original or new? | What it means | Why it affects sales | Effect on sales |
+|---|---|---|---|---|
+| Temperature (°C) | **Original** | Daily temperature (5 to 38) | Hot days make people want ice cream | About +6.6 per °C |
+| Weekend | 🆕 **New** | Weekday or weekend | More people are out and free on weekends | About +44 |
+| Rainfall (mm) | 🆕 **New** | Rain during the day (0 to 25) | Rain keeps people at home | About -2.3 per mm |
 
 ## How it works
 
@@ -79,6 +88,7 @@ The app opens at http://localhost:8501.
 ## Deployed on
 
 [Streamlit Community Cloud](https://streamlit.io/cloud), straight from this GitHub repository.
+
 
 
 ## Running Local
